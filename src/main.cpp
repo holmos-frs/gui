@@ -17,21 +17,12 @@
  */
 
 #include <gtkmm.h>
+#include "Application.h"
 
 int main(int   argc,
          char *argv[])
 {
-    auto app =
-      Gtk::Application::create(argc, argv,
-                               "org.gnome.Gui");
+    auto app = Application::create();
 
-    Gtk::Window window;
-    window.set_title ("gui");
-    window.set_default_size(200, 200);
-
-    /* You can add GTK+ widgets to your window here.
-     * See https://developer.gnome.org/ for help.
-     */
-
-    return app->run(window);
+    return app->run();
 }
