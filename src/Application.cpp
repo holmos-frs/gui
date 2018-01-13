@@ -21,6 +21,7 @@ ApplicationWindow* Application::create_appwindow() {
 void Application::on_activate() {
 	auto appwindow = create_appwindow();
 	appwindow->present();
+	appwindow->show_all_children();
 }
 
 void Application::on_hide_window(Gtk::Window* window) {
