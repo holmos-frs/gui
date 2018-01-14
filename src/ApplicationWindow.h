@@ -1,7 +1,7 @@
 #ifndef APPLICATION_WINDOW_H_
 #define APPLICATION_WINDOW_H_
 
-#include <gtkmm.h>
+#include <gtkmm-3.0/gtkmm.h>
 #include "MatWidget.h"
 
 class ApplicationWindow : public Gtk::ApplicationWindow {

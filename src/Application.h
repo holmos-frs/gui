@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
 
-#include <gtkmm.h>
+#include <gtkmm-3.0/gtkmm.h>
 #include "ApplicationWindow.h"
 
 class Application : public Gtk::Application {

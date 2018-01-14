@@ -1,17 +1,21 @@
 #include "MatWidget.h"
 
-MatWidget::MatWidget() : Gtk::DrawingArea() {
-	set_size_request(200, 200);
+MatWidget::MatWidget(Mat *m_image) : Gtk::Image() {
+	assert(sizeof(guint8) == sizeof(unsigned char));
+	assert(image->type() == CV_8UC3);
+	set_hexpand(true);
+	set_vexpand(true);
+
+	image = m_image;
+	pixbuf = Gdk::Pixbuf::create_from_data(
+	    reinterpret_cast<guint8*>(image->data),
+	    Gdk::Colorspace::COLORSPACE_RGB,
+	    false, 8,
+	    image->cols, image->rows, image->cols * 3);
+
+	set(pixbuf);
 }
 
 MatWidget::~MatWidget() {
 
-}
-
-bool MatWidget::on_draw(const Cairo::RefPtr<Cairo::Context>& cr) {
-	cr->set_source_rgb(1.0, 0.0, 1.0);
-	cr->rectangle(0, 0, 800, 800);
-	cr->fill();
-
-	return true;
 }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtkmm.h>
+#include <gtkmm-3.0/gtkmm.h>
 #include "Application.h"
 
 int main(int   argc,
