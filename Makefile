@@ -7,7 +7,7 @@ SOURCES=main,Application,ApplicationWindow,MatWidget
 run: holmos-gui
 	DISPLAY=:0 ./${EXECUTABLE}
 
-holmos-gui: ${OBJDIR}/MatWidget.o ${OBJDIR}/ApplicationWindow.o ${OBJDIR}/Application.o ${OBJDIR}/main.o
+holmos-gui: ${OBJDIR}/ApplicationWindow.o ${OBJDIR}/Application.o ${OBJDIR}/main.o
 	g++ ${OBJDIR}/{${SOURCES}}.o -o ${EXECUTABLE} ${CXXFLAGS} ${LFLAGS}
 
 ${OBJDIR}/%.o: src/%.cpp

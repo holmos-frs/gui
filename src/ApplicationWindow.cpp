@@ -6,14 +6,13 @@ ApplicationWindow::ApplicationWindow() {
 
 	grid_container.set_orientation(Gtk::ORIENTATION_HORIZONTAL);
 
-	mat_widget = new MatWidget();
+	image = cv::imread("holmos_raw.png", 0);
+	//mat_widget = new MatWidget(&image);
+
 	m_label = new Gtk::Label("Hello World");
 
 	grid_container.add(*m_label);
-	grid_container.add(*mat_widget);
-
-	for(int i=0; i<1024*5*3; i++)
-		mat_widget->image->at<char>(i) = 100;
+	//grid_container.add(*mat_widget);
 
 	add(grid_container);
 
