@@ -2,6 +2,7 @@
 #define APPLICATION_WINDOW_H_
 
 #include <gtkmm-3.0/gtkmm.h>
+#include <opencv2/opencv.hpp>
 #include "MatWidget.h"
 
 class ApplicationWindow : public Gtk::ApplicationWindow {
@@ -14,6 +15,7 @@ private:
 	Gtk::Grid grid_container;
 	Gtk::Label *m_label;
 	MatWidget *mat_widget;
+	cv::Mat image;
 };
 
 
