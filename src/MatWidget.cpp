@@ -1,8 +1,9 @@
 #include "MatWidget.h"
 
-MatWidget::MatWidget(Mat *m_image) : Gtk::Image() {
+MatWidget::MatWidget(cv::Mat *m_image) : Gtk::Image() {
 	assert(sizeof(guint8) == sizeof(unsigned char));
-	assert(image->type() == CV_8UC3);
+	std::cout << "image type " << m_image->type() << std::endl;
+	assert(m_image->type() == CV_8UC3);
 	set_hexpand(true);
 	set_vexpand(true);
 
