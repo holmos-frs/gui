@@ -8,7 +8,7 @@ run: holmos-gui
 	DISPLAY=:0 ./${EXECUTABLE}
 
 holmos-gui: ${OBJDIR}/ApplicationWindow.o ${OBJDIR}/Application.o ${OBJDIR}/main.o
-	g++ ${OBJDIR}/{${SOURCES}}.o -o ${EXECUTABLE} ${CXXFLAGS} ${LFLAGS}
+	g++ ${OBJDIR}/ApplicationWindow.o ${OBJDIR}/Application.o  ${OBJDIR}/main.o -o ${EXECUTABLE} ${CXXFLAGS} ${LFLAGS}
 
 ${OBJDIR}/%.o: src/%.cpp
 	g++ -c ./$< ${CXXFLAGS} ${LFLAGS} -o $@
