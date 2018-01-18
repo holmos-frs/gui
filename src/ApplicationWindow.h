@@ -13,7 +13,10 @@ public:
 
 private:
 	Gtk::Grid grid_container;
+	Gtk::Paned main_paned;     //horizontal
+	Gtk::Paned control_pained; //vertikal
 	Gtk::Label *m_label;
+	Gtk::Label *m_label2;
 	MatWidget *mat_widget;
 	cv::Mat image;
 };
