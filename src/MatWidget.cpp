@@ -22,6 +22,7 @@ MatWidget::MatWidget(cv::Mat *m_image) : Gtk::ScrolledWindow() {
 	image_widget->set(pixbuf);
 
 	aspect_frame = new Gtk::AspectFrame();
+	aspect_frame->set_shadow_type(Gtk::SHADOW_NONE);
 	aspect_frame->set(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER, image_aspect);
 	aspect_frame->add(*image_widget);
 
@@ -31,9 +32,19 @@ MatWidget::MatWidget(cv::Mat *m_image) : Gtk::ScrolledWindow() {
 }
 
 void MatWidget::on_alloc(Gtk::Allocation& t) {
-    /*image_widget->set(
-	    pixbuf->scale_simple(t.get_width(), t.get_height(), Gdk::INTERP_NEAREST)
-	    );*/
+    int new_width, new_height;
+    if((t.get_width() - width) < (t.get_height() - height)) {
+	new_width = t.get_width();
+	new_height = new_width / image_aspect;
+    } else {
+	new_height = t.get_height();
+	new_width = new_height * image_aspect;
+    }
+    
+	
+    image_widget->set(
+	    pixbuf->scale_simple(new_width, new_width, Gdk::INTERP_NEAREST)
+	    );
 }
 
 MatWidget::~MatWidget() {
