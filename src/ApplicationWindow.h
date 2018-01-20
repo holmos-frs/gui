@@ -13,6 +13,7 @@ public:
 
 private:
 	Gtk::Grid grid_container;
+	Gtk::ScrolledWindow *m_scrollwindow;
 	Gtk::Label *m_label;
 	MatWidget *mat_widget;
 	cv::Mat image;
