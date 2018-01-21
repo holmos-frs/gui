@@ -2,6 +2,11 @@
 
 Application::Application()
 : Gtk::Application("org.frsem.holmos", Gio::APPLICATION_HANDLES_OPEN) {
+    computation_thread = new ComputationThread(1024U, 1024U);
+    computation_thread->run();
+}
+Application::~Application() {
+    computation_thread->stop();
 }
 
 Glib::RefPtr<Application> Application::create() {
